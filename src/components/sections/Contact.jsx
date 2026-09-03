@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Copy, Check, Send } from 'lucide-react';
+import { Copy, Check, Send, Loader2, Mail, AlertCircle } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
 
 export function Contact({ playChime, playClick }) {
   const [copied, setCopied] = useState(false);
   const [budget, setBudget] = useState('E-Commerce');
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     clientName: '',
     clientEmail: '',
@@ -26,16 +27,46 @@ export function Contact({ playChime, playClick }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    playChime();
+    if (!formData.clientName || !formData.clientEmail) return;
 
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ clientName: '', clientEmail: '', projectScope: '' });
-    }, 3500);
+    setSubmitStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/Korvexyasea@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Nombre_o_Empresa: formData.clientName,
+          Email_Contacto: formData.clientEmail,
+          Tipo_de_Servicio: budget,
+          Detalles_del_Proyecto: formData.projectScope || 'Sin detalles adicionales especificados',
+          _subject: `🚀 Consulta Web Korvexya: ${formData.clientName} [${budget}]`,
+          _captcha: "false",
+          _template: "table"
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        playChime();
+        setFormData({ clientName: '', clientEmail: '', projectScope: '' });
+      } else {
+        throw new Error('Error al procesar el envío');
+      }
+    } catch (err) {
+      console.error("Form submit error:", err);
+      setSubmitStatus('error');
+      setErrorMessage('Hubo un inconveniente al enviar en línea. Puedes enviarnos un correo directamente a ' + email);
+    }
   };
+
+  const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(`Consulta Korvexya - ${budget} - ${formData.clientName || 'Cliente'}`)}&body=${encodeURIComponent(`Nombre: ${formData.clientName}\nEmail: ${formData.clientEmail}\nServicio: ${budget}\n\nDetalles del proyecto:\n${formData.projectScope}`)}`;
 
   return (
     <section className="section-wrapper" id="contact">
@@ -45,7 +76,7 @@ export function Contact({ playChime, playClick }) {
             <div className="contact-layout-grid">
 
               {/* Left Info */}
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div className="contact-info-col">
                 <div>
                   <span className="section-kicker-tag">Tech &amp; Growth Studio</span>
                   <h2 className="editorial-title" style={{ marginTop: '12px' }}>
@@ -57,11 +88,11 @@ export function Contact({ playChime, playClick }) {
                   </p>
                 </div>
 
-                <div>
+                <div className="contact-direct-wrap">
                   <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '8px' }}>
                     Contacto Directo
                   </div>
-                  <button className="copy-email-box" onClick={handleCopy}>
+                  <button className="copy-email-box" onClick={handleCopy} type="button">
                     {copied ? <Check size={16} color="var(--accent-emerald)" /> : <Copy size={16} />}
                     <span>{email}</span>
                     {copied && (
@@ -70,88 +101,130 @@ export function Contact({ playChime, playClick }) {
                       </span>
                     )}
                   </button>
+
+                  <div style={{ marginTop: '12px' }}>
+                    <a 
+                      href={mailtoHref} 
+                      className="contact-mailto-link"
+                      onClick={playClick}
+                    >
+                      <Mail size={14} />
+                      <span>Abrir en tu app de correo</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
               {/* Right Form */}
-              <form onSubmit={handleSubmit}>
-                <div className="form-field-group">
-                  <label className="form-label-text" htmlFor="clientName">Nombre o Empresa</label>
-                  <input
-                    type="text"
-                    id="clientName"
-                    className="editorial-input"
-                    placeholder="Ej. Mi Tienda / Empresa / Tu Nombre"
-                    required
-                    value={formData.clientName}
-                    onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-                  />
-                </div>
-
-                <div className="form-field-group">
-                  <label className="form-label-text" htmlFor="clientEmail">Correo Electrónico</label>
-                  <input
-                    type="email"
-                    id="clientEmail"
-                    className="editorial-input"
-                    placeholder="contacto@tuempresa.com"
-                    required
-                    value={formData.clientEmail}
-                    onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
-                  />
-                </div>
-
-                <div className="form-field-group">
-                  <label className="form-label-text">Tipo de Solución Requerida</label>
-                  <div className="budget-tags-row">
-                    {['E-Commerce', 'Sistema CRM', 'Integración ERP/Pagos', 'IA & Automatización'].map(b => (
-                      <button
-                        key={b}
-                        type="button"
-                        className={`budget-chip-btn ${budget === b ? 'active' : ''}`}
-                        onClick={() => { playClick(); setBudget(b); }}
-                      >
-                        {b}
-                      </button>
-                    ))}
+              <div className="contact-form-col">
+                {submitStatus === 'success' ? (
+                  <div className="form-success-banner">
+                    <div className="success-icon-circle">
+                      <Check size={28} color="#059669" />
+                    </div>
+                    <h3 className="success-title">¡Mensaje Enviado con Éxito!</h3>
+                    <p className="success-desc">
+                      Tu solicitud ha sido remitida directamente al equipo de <strong>Korvexya</strong> ({email}). Revisaremos tus requerimientos y te responderemos en breve.
+                    </p>
+                    <button 
+                      type="button" 
+                      className="btn-editorial-secondary"
+                      onClick={() => { playClick(); setSubmitStatus('idle'); }}
+                      style={{ marginTop: '16px' }}
+                    >
+                      Enviar otro mensaje
+                    </button>
                   </div>
-                </div>
+                ) : (
+                  <form onSubmit={handleSubmit}>
+                    <div className="form-field-group">
+                      <label className="form-label-text" htmlFor="clientName">Nombre o Empresa *</label>
+                      <input
+                        type="text"
+                        id="clientName"
+                        className="editorial-input"
+                        placeholder="Ej. Mi Tienda / Empresa / Tu Nombre"
+                        required
+                        value={formData.clientName}
+                        onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
+                      />
+                    </div>
 
-                <div className="form-field-group">
-                  <label className="form-label-text" htmlFor="projectScope">Detalles del Proyecto</label>
-                  <textarea
-                    id="projectScope"
-                    rows={3}
-                    className="editorial-textarea"
-                    placeholder="Cuéntanos sobre los objetivos de venta, requerimientos técnicos, pasarelas de pago o sistemas a integrar..."
-                    value={formData.projectScope}
-                    onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                  />
-                </div>
+                    <div className="form-field-group">
+                      <label className="form-label-text" htmlFor="clientEmail">Correo Electrónico *</label>
+                      <input
+                        type="email"
+                        id="clientEmail"
+                        className="editorial-input"
+                        placeholder="contacto@tuempresa.com"
+                        required
+                        value={formData.clientEmail}
+                        onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
+                      />
+                    </div>
 
-                <button
-                  type="submit"
-                  className="btn-editorial-primary"
-                  style={{
-                    width: '100%',
-                    justifyContent: 'center',
-                    padding: '12px 24px',
-                    background: formSubmitted ? 'linear-gradient(135deg, #059669, #0284c7)' : undefined
-                  }}
-                >
-                  {formSubmitted ? (
-                    <>
-                      <Check size={16} />
-                      <span>✓ ¡Solicitud Enviada con Éxito!</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Enviar Solicitud de Consulta</span>
-                      <Send size={16} />
-                    </>
-                  )}
-                </button>
-              </form>
+                    <div className="form-field-group">
+                      <label className="form-label-text">Tipo de Solución Requerida</label>
+                      <div className="budget-tags-row">
+                        {['E-Commerce', 'Sistema CRM', 'Integración ERP/Pagos', 'IA & Automatización'].map(b => (
+                          <button
+                            key={b}
+                            type="button"
+                            className={`budget-chip-btn ${budget === b ? 'active' : ''}`}
+                            onClick={() => { playClick(); setBudget(b); }}
+                          >
+                            {b}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="form-field-group">
+                      <label className="form-label-text" htmlFor="projectScope">Detalles del Proyecto</label>
+                      <textarea
+                        id="projectScope"
+                        rows={3}
+                        className="editorial-textarea"
+                        placeholder="Cuéntanos sobre los objetivos de venta, requerimientos técnicos, pasarelas de pago o sistemas a integrar..."
+                        value={formData.projectScope}
+                        onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
+                      />
+                    </div>
+
+                    {submitStatus === 'error' && (
+                      <div className="form-error-banner">
+                        <AlertCircle size={16} />
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={submitStatus === 'submitting'}
+                      className="btn-editorial-primary"
+                      style={{
+                        width: '100%',
+                        justifyContent: 'center',
+                        padding: '12px 24px',
+                        cursor: submitStatus === 'submitting' ? 'wait' : 'pointer',
+                        opacity: submitStatus === 'submitting' ? 0.8 : 1
+                      }}
+                    >
+                      {submitStatus === 'submitting' ? (
+                        <>
+                          <Loader2 size={16} className="spin-animation" />
+                          <span>Enviando a Korvexya...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Enviar Solicitud a {email}</span>
+                          <Send size={16} />
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </div>
 
             </div>
           </GlassCard>
@@ -160,4 +233,5 @@ export function Contact({ playChime, playClick }) {
     </section>
   );
 }
+
 

@@ -7,7 +7,8 @@ export function ScrollProgress({ progress }) {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100vw',
+        right: 0,
+        width: '100%',
         height: '3px',
         zIndex: 1000,
         pointerEvents: 'none',
@@ -27,3 +28,4 @@ export function ScrollProgress({ progress }) {
     </div>
   );
 }
+

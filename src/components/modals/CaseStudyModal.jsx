@@ -43,8 +43,8 @@ export function CaseStudyModal({ project, onClose, playClick }) {
           </button>
 
           {/* Header */}
-          <div style={{ marginBottom: '24px' }}>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
+          <div style={{ marginBottom: '24px', paddingRight: '36px' }}>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
               <span className="hero-pill-badge" style={{ color: 'var(--accent-primary)' }}>
                 {project.client}
               </span>
@@ -52,33 +52,33 @@ export function CaseStudyModal({ project, onClose, playClick }) {
                 {project.role}
               </span>
             </div>
-            <h2 style={{ fontFamily: 'var(--font-editorial-headline)', fontSize: '2.2rem', fontWeight: 800, lineHeight: 1.15 }}>
+            <h2 className="modal-headline">
               {project.title}
             </h2>
-            <p style={{ fontSize: '1.08rem', color: 'var(--accent-primary)', fontWeight: 600, marginTop: '6px' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--accent-primary)', fontWeight: 600, marginTop: '6px' }}>
               {project.tag}
             </p>
           </div>
 
           {/* Product/Service Screenshot Preview */}
           {project.image && (
-            <div style={{ marginBottom: '24px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--paper-border)', maxHeight: '320px', background: '#07090e' }}>
+            <div className="modal-preview-img-box">
               <img 
                 src={project.image} 
                 alt={project.title} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} 
+                className="modal-preview-img"
               />
             </div>
           )}
 
           {/* Overview */}
-          <div style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '32px' }}>
+          <div className="modal-overview-text">
             {project.overview}
           </div>
 
           {/* Grid of Problem / Solution */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '32px' }}>
-            <div style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--paper-alabaster)', border: '1px solid var(--paper-border)' }}>
+          <div className="modal-grid-two-col">
+            <div className="modal-card-box">
               <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#ef4444', marginBottom: '8px' }}>
                 01 // DESAFÍO &amp; RETO OPERATIVO
               </div>
@@ -87,14 +87,14 @@ export function CaseStudyModal({ project, onClose, playClick }) {
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--paper-alabaster)', border: '1px solid var(--paper-border)' }}>
+            <div className="modal-card-box">
               <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--accent-emerald)', marginBottom: '8px' }}>
                 02 // SOLUCIÓN &amp; ARQUITECTURA TÉCNICA
               </div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {project.solution.map((sol, i) => (
-                  <li key={i} style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', display: 'flex', gap: '8px' }}>
-                    <span style={{ color: 'var(--accent-emerald)', fontWeight: 'bold' }}>✓</span>
+                  <li key={i} style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--accent-emerald)', fontWeight: 'bold', flexShrink: 0 }}>✓</span>
                     <span>{sol}</span>
                   </li>
                 ))}
@@ -103,7 +103,7 @@ export function CaseStudyModal({ project, onClose, playClick }) {
           </div>
 
           {/* Tokens & Motion */}
-          <div style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--paper-alabaster)', border: '1px solid var(--paper-border)', marginBottom: '32px' }}>
+          <div className="modal-card-box" style={{ marginBottom: '24px' }}>
             <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--accent-primary)', marginBottom: '10px' }}>
               03 // ESPECIFICACIONES &amp; RENDIMIENTO
             </div>
@@ -124,22 +124,16 @@ export function CaseStudyModal({ project, onClose, playClick }) {
             <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
               04 // RESULTADOS &amp; MÉTRICAS DE NEGOCIO
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+            <div className="modal-impact-grid">
               {project.impact.map(r => (
                 <div 
                   key={r.label}
-                  style={{
-                    padding: '18px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'var(--bg-surface)',
-                    border: '1px solid var(--paper-border-strong)',
-                    textAlign: 'center'
-                  }}
+                  className="modal-metric-box"
                 >
-                  <div style={{ fontFamily: 'var(--font-editorial-headline)', fontSize: '1.8rem', fontWeight: 800, color: 'var(--accent-primary)', lineHeight: 1, marginBottom: '6px' }}>
+                  <div className="modal-metric-val">
                     {r.val}
                   </div>
-                  <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+                  <div className="modal-metric-lbl">
                     {r.label}
                   </div>
                 </div>
@@ -152,3 +146,4 @@ export function CaseStudyModal({ project, onClose, playClick }) {
     </AnimatePresence>
   );
 }
+

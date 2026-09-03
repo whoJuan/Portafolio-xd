@@ -5,15 +5,17 @@ export function EditorialMasthead() {
     <div className="editorial-masthead">
       <div className="app-container">
         <div className="masthead-inner">
-          <div className="masthead-tag">
+          <div className="masthead-tag masthead-item-desktop">
             <span>VOL. 26</span>
             <span>//</span>
             <span>ENTERPRISE TECH</span>
           </div>
 
-          <div>KORVEXYA — SOLUCIONES E-COMMERCE, CRM &amp; SOFTWARE A MEDIDA</div>
+          <div className="masthead-brand-banner">
+            KORVEXYA — SOLUCIONES E-COMMERCE &amp; CRM A MEDIDA
+          </div>
 
-          <div style={{ display: 'flex', gap: '14px' }}>
+          <div className="masthead-status-side masthead-item-desktop" style={{ display: 'flex', gap: '14px' }}>
             <span>CONSULTORÍA DISPONIBLE 2026</span>
             <span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>● SISTEMAS ACTIVOS</span>
           </div>
@@ -22,3 +24,4 @@ export function EditorialMasthead() {
     </div>
   );
 }
+

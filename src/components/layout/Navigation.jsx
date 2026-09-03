@@ -207,7 +207,7 @@ export function Navigation({
                 ))}
               </div>
 
-              <div className="mobile-nav-footer">
+              <div className="mobile-nav-footer" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <button 
                   className="btn-editorial-primary" 
                   style={{ width: '100%', justifyContent: 'center', padding: '14px 20px', fontSize: '0.9rem' }}
@@ -216,6 +216,17 @@ export function Navigation({
                   <span>Iniciar Proyecto con Korvexya</span>
                   <ArrowUpRight size={16} />
                 </button>
+
+                <a
+                  href="https://wa.me/qr/BKSPNQ2R4AAUB1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mobile-nav-whatsapp-btn"
+                  onClick={playClick}
+                >
+                  <span>Chatear por WhatsApp Oficial</span>
+                  <ArrowUpRight size={15} />
+                </a>
               </div>
             </div>
           </motion.div>

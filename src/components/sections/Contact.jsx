@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Copy, Check, Send, Loader2, Mail, AlertCircle } from 'lucide-react';
+import { Copy, Check, Send, Loader2, Mail, AlertCircle, Sparkles } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
+import { WhatsAppIcon } from '../ui/WhatsAppFloat';
 
 export function Contact({ playChime, playClick }) {
   const [copied, setCopied] = useState(false);
@@ -20,7 +21,7 @@ export function Contact({ playChime, playClick }) {
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
-      playChime();
+      if (playChime) playChime();
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
       console.warn("Copy failed:", err);
@@ -54,7 +55,7 @@ export function Contact({ playChime, playClick }) {
 
       if (response.ok) {
         setSubmitStatus('success');
-        playChime();
+        if (playChime) playChime();
         setFormData({ clientName: '', clientEmail: '', projectScope: '' });
       } else {
         throw new Error('Error al procesar el envío');
@@ -62,7 +63,7 @@ export function Contact({ playChime, playClick }) {
     } catch (err) {
       console.error("Form submit error:", err);
       setSubmitStatus('error');
-      setErrorMessage('Hubo un inconveniente al enviar en línea. Puedes enviarnos un correo directamente a ' + email);
+      setErrorMessage('Hubo un inconveniente al enviar en línea. Puedes escribirnos directamente a ' + email);
     }
   };
 
@@ -75,7 +76,7 @@ export function Contact({ playChime, playClick }) {
           <GlassCard className="contact-spread-box">
             <div className="contact-layout-grid">
 
-              {/* Left Info */}
+              {/* Left Info Column */}
               <div className="contact-info-col">
                 <div>
                   <span className="section-kicker-tag">Tech &amp; Growth Studio</span>
@@ -89,8 +90,9 @@ export function Contact({ playChime, playClick }) {
                 </div>
 
                 <div className="contact-direct-wrap">
+                  {/* Email Box */}
                   <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '8px' }}>
-                    Contacto Directo
+                    Correo Electrónico Oficial
                   </div>
                   <button className="copy-email-box" onClick={handleCopy} type="button">
                     {copied ? <Check size={16} color="var(--accent-emerald)" /> : <Copy size={16} />}
@@ -102,7 +104,7 @@ export function Contact({ playChime, playClick }) {
                     )}
                   </button>
 
-                  <div style={{ marginTop: '12px' }}>
+                  <div style={{ marginTop: '8px', marginBottom: '22px' }}>
                     <a 
                       href={mailtoHref} 
                       className="contact-mailto-link"
@@ -112,10 +114,59 @@ export function Contact({ playChime, playClick }) {
                       <span>Abrir en tu app de correo</span>
                     </a>
                   </div>
+
+                  {/* WhatsApp Channels */}
+                  <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '10px' }}>
+                    WhatsApp &amp; Atención Inmediata
+                  </div>
+                  
+                  {/* Main QR Link */}
+                  <a
+                    href="https://wa.me/qr/BKSPNQ2R4AAUB1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-whatsapp-main-badge"
+                    onClick={playClick}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span className="status-pulse-dot" style={{ background: '#25D366' }} />
+                      <span style={{ fontWeight: 700 }}>Canal WhatsApp QR Oficial</span>
+                    </div>
+                    <span style={{ fontSize: '0.76rem', fontFamily: 'var(--font-mono)', color: '#047857', fontWeight: 600 }}>
+                      Abrir Chat ↗
+                    </span>
+                  </a>
+
+                  {/* Dual Phone Numbers */}
+                  <div className="contact-whatsapp-phones-grid">
+                    <a
+                      href="https://wa.me/573104872129?text=Hola%20Korvexya,%20deseo%20cotizar%20un%20proyecto"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-wa-number-card"
+                      onClick={playClick}
+                    >
+                      <div className="wa-card-tag">Línea 1 • Proyectos</div>
+                      <div className="wa-card-phone">+57 310 4872129</div>
+                      <div className="wa-card-cta">Chatear en WhatsApp ↗</div>
+                    </a>
+
+                    <a
+                      href="https://wa.me/573135281795?text=Hola%20Korvexya,%20deseo%20cotizar%20un%20proyecto"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-wa-number-card"
+                      onClick={playClick}
+                    >
+                      <div className="wa-card-tag">Línea 2 • Soporte &amp; CRM</div>
+                      <div className="wa-card-phone">+57 313 5281795</div>
+                      <div className="wa-card-cta">Chatear en WhatsApp ↗</div>
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Right Form */}
+              {/* Right Form Column */}
               <div className="contact-form-col">
                 {submitStatus === 'success' ? (
                   <div className="form-success-banner">
@@ -129,7 +180,7 @@ export function Contact({ playChime, playClick }) {
                     <button 
                       type="button" 
                       className="btn-editorial-secondary"
-                      onClick={() => { playClick(); setSubmitStatus('idle'); }}
+                      onClick={() => { if (playClick) playClick(); setSubmitStatus('idle'); }}
                       style={{ marginTop: '16px' }}
                     >
                       Enviar otro mensaje
@@ -171,7 +222,7 @@ export function Contact({ playChime, playClick }) {
                             key={b}
                             type="button"
                             className={`budget-chip-btn ${budget === b ? 'active' : ''}`}
-                            onClick={() => { playClick(); setBudget(b); }}
+                            onClick={() => { if (playClick) playClick(); setBudget(b); }}
                           >
                             {b}
                           </button>
@@ -233,5 +284,3 @@ export function Contact({ playChime, playClick }) {
     </section>
   );
 }
-
-

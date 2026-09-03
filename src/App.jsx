@@ -19,9 +19,10 @@ import { Methodology } from './components/sections/Methodology';
 import { Philosophy } from './components/sections/Philosophy';
 import { Contact } from './components/sections/Contact';
 
-// Modals & Easter Egg
+// Modals & Easter Egg & Widgets
 import { CaseStudyModal } from './components/modals/CaseStudyModal';
 import { TokenTapGame } from './components/easteregg/TokenTapGame';
+import { WhatsAppFloat } from './components/ui/WhatsAppFloat';
 
 export default function App() {
   const sectionIds = ['hero', 'skills', 'tokens-lab', 'projects', 'methodology', 'about', 'contact'];
@@ -127,6 +128,12 @@ export default function App() {
 
       {/* Editorial Footer */}
       <Footer playClick={playClick} />
+
+      {/* Floating WhatsApp Quick Action Hub */}
+      <WhatsAppFloat
+        playClick={playClick}
+        playChime={playChime}
+      />
 
       {/* Deep-Dive Case Study Modal Drawer */}
       <CaseStudyModal

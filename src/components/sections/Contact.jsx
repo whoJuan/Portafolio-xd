@@ -5,7 +5,7 @@ import { RevealOnScroll } from '../ui/RevealOnScroll';
 
 export function Contact({ playChime, playClick }) {
   const [copied, setCopied] = useState(false);
-  const [budget, setBudget] = useState('10k-25k');
+  const [budget, setBudget] = useState('E-Commerce');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     clientName: '',
@@ -13,7 +13,7 @@ export function Contact({ playChime, playClick }) {
     projectScope: ''
   });
 
-  const email = "juancitochannel@gmail.com";
+  const email = "Korvexyasea@gmail.com";
 
   const handleCopy = async () => {
     try {
@@ -47,13 +47,13 @@ export function Contact({ playChime, playClick }) {
               {/* Left Info */}
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <span className="section-kicker-tag">Commissioning Studio</span>
+                  <span className="section-kicker-tag">Tech &amp; Growth Studio</span>
                   <h2 className="editorial-title" style={{ marginTop: '12px' }}>
-                    ¿Construimos algo <br />
-                    <span className="serif-accent" style={{ color: 'var(--accent-primary)' }}>extraordinario</span> juntos?
+                    ¿Impulsamos tu <br />
+                    <span className="serif-accent" style={{ color: 'var(--accent-primary)' }}>E-Commerce o CRM</span> al siguiente nivel?
                   </h2>
                   <p className="editorial-subtitle">
-                    Disponible para roles de Liderazgo de Producto, Rediseño de Plataformas SaaS, Sistemas de Diseño y Proyectos de Alta Complejidad.
+                    Disponible para consultoría técnica, desarrollo de tiendas virtuales de alto impacto, plataformas CRM a medida, integraciones de software y automatizaciones con IA.
                   </p>
                 </div>
 
@@ -81,7 +81,7 @@ export function Contact({ playChime, playClick }) {
                     type="text"
                     id="clientName"
                     className="editorial-input"
-                    placeholder="Ej. Stripe / Sequoia / Tu Nombre"
+                    placeholder="Ej. Mi Tienda / Empresa / Tu Nombre"
                     required
                     value={formData.clientName}
                     onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
@@ -94,7 +94,7 @@ export function Contact({ playChime, playClick }) {
                     type="email"
                     id="clientEmail"
                     className="editorial-input"
-                    placeholder="nombre@compania.com"
+                    placeholder="contacto@tuempresa.com"
                     required
                     value={formData.clientEmail}
                     onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
@@ -102,9 +102,9 @@ export function Contact({ playChime, playClick }) {
                 </div>
 
                 <div className="form-field-group">
-                  <label className="form-label-text">Rango de Presupuesto Estimado</label>
+                  <label className="form-label-text">Tipo de Solución Requerida</label>
                   <div className="budget-tags-row">
-                    {['$10k – $25k', '$25k – $50k', '$50k+'].map(b => (
+                    {['E-Commerce', 'Sistema CRM', 'Integración ERP/Pagos', 'IA & Automatización'].map(b => (
                       <button
                         key={b}
                         type="button"
@@ -118,12 +118,12 @@ export function Contact({ playChime, playClick }) {
                 </div>
 
                 <div className="form-field-group">
-                  <label className="form-label-text" htmlFor="projectScope">Visión del Proyecto</label>
+                  <label className="form-label-text" htmlFor="projectScope">Detalles del Proyecto</label>
                   <textarea
                     id="projectScope"
                     rows={3}
                     className="editorial-textarea"
-                    placeholder="Cuéntame sobre el producto, los retos actuales de UX/UI y el cronograma deseado..."
+                    placeholder="Cuéntanos sobre los objetivos de venta, requerimientos técnicos, pasarelas de pago o sistemas a integrar..."
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
                   />
@@ -146,7 +146,7 @@ export function Contact({ playChime, playClick }) {
                     </>
                   ) : (
                     <>
-                      <span>Enviar Solicitud de Proyecto</span>
+                      <span>Enviar Solicitud de Consulta</span>
                       <Send size={16} />
                     </>
                   )}
@@ -160,3 +160,4 @@ export function Contact({ playChime, playClick }) {
     </section>
   );
 }
+

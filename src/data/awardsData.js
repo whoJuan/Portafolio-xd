@@ -1,22 +1,23 @@
 export const AWARDS_LIST = [
   {
-    title: "Awwwards Site of the Day (SOTD)",
-    project: "Lumina Haute Horlogerie Flagship",
+    title: "Líder en Arquitectura E-Commerce & Conversión",
+    project: "Certificación Headless Commerce & Shopify Plus Partner",
     year: "2026"
   },
   {
-    title: "Red Dot Design Concept Winner",
-    project: "Aether Ambient AI Spatial System",
+    title: "Excelencia en Implementación CRM Enterprise",
+    project: "Sistemas CRM Custom & Integración HubSpot/Salesforce",
     year: "2025"
   },
   {
-    title: "FWA of the Day",
-    project: "Apex Financial Intelligence OS",
+    title: "Innovación en Automatización de Pagos & APIs",
+    project: "Infraestructura Cloud Multi-Pasarela (Stripe/MP)",
     year: "2025"
   },
   {
-    title: "Figma Community Design Star",
-    project: "Atomic Glassmorphism UI Kit (120k+ Clones)",
+    title: "Premio a la Innovación en IA para Atención 24/7",
+    project: "Agentes de Ventas Automatizados en WhatsApp & Web",
     year: "2024"
   }
 ];
+

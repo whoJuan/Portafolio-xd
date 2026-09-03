@@ -1,62 +1,63 @@
 export const SKILLS_PILLARS = [
   {
     num: "PILAR // 01",
-    title: "Investigación & Arquitectura UX",
-    description: "Diagnóstico y modelado de comportamiento de usuario. Diseño centrado en reducir la fricción en productos de alta densidad mediante flujos cognitivos impecables.",
+    title: "E-Commerce de Alta Conversión & Headless",
+    description: "Desarrollo de tiendas online veloces y escalables. Dominio de Shopify Plus, WooCommerce, Headless Commerce con Next.js/React, checkout optimizado y analítica de conversión (CRO).",
     proficiency: 98,
     tags: [
-      "User Journey Mapping",
-      "Auditorías Heurísticas",
-      "Pruebas de Usabilidad",
-      "Card Sorting & IA",
-      "Métricas HEART / SUS",
-      "Optimización de Conversión"
+      "Shopify Plus & Liquid",
+      "Headless Commerce (Next.js)",
+      "Checkout 1-Clic Optimizado",
+      "Pasarelas de Pago (Stripe/MP)",
+      "Optimización CRO & A/B Testing",
+      "Arquitectura Multi-Moneda"
     ],
     iconType: "compass"
   },
   {
     num: "PILAR // 02",
-    title: "Sistemas UI & Morfismo Editorial",
-    description: "Creación de bibliotecas de componentes con arquitectura de tokens de 3 capas. Dominio de tipografía suiza, glassmorfismo multicapa, jerarquía visual y accesibilidad WCAG AAA.",
+    title: "Sistemas CRM & Pipelines de Ventas",
+    description: "Creación de plataformas CRM a medida y configuración avanzada de HubSpot y Salesforce. Flujos de prospección automatizados, scoring de leads con IA y paneles directivos.",
     proficiency: 96,
     tags: [
-      "Design Tokens (W3C Standard)",
-      "Figma Variables & AutoLayout",
-      "Glassmorphic Elevation",
-      "Tipografía Editorial",
-      "Accesibilidad WCAG 2.2 AAA",
-      "Sistemas Multi-Marca"
+      "CRM Custom Full Stack",
+      "HubSpot & Salesforce Setup",
+      "Tableros Kanban de Ventas",
+      "WhatsApp Business API",
+      "Scoring Predictivo de Leads",
+      "Reportes & Dashboards BI"
     ],
     iconType: "layers"
   },
   {
     num: "PILAR // 03",
-    title: "Motion Design & Prototipado Cinético",
-    description: "Orquestación de micro-interacciones espaciales, transiciones de estado fluidas y narrativa interactiva vinculada al scroll utilizando Framer Motion y físicas de resorte.",
-    proficiency: 94,
+    title: "Integraciones de APIs, ERPs & Logística",
+    description: "Conexión en tiempo real de inventarios, facturación electrónica automática y logística. Arquitecturas de microservicios robustas con tolerancia a fallos y latencia mínima.",
+    proficiency: 95,
     tags: [
-      "Framer Motion / Motion.dev",
-      "Scroll-Linked Animations",
-      "Spring Physics & Dampening",
-      "Transiciones Shared Layout",
-      "Micro-feedback Háptico/Audio",
-      "Prototipos de Alta Fidelidad"
+      "Integraciones REST / GraphQL",
+      "Sincronización ERP (SAP/Oracle)",
+      "Facturación Electrónica Auto",
+      "Webhooks & Event-Driven",
+      "Logística & Tracking de Envíos",
+      "Seguridad OAuth2 & TLS"
     ],
-    iconType: "play"
+    iconType: "code"
   },
   {
     num: "PILAR // 04",
-    title: "Design Engineering & Puente a Código",
-    description: "Cierre absoluto de la brecha entre diseño y desarrollo. Implementación directa en React, Tailwind/CSS moderno, token pipelines e integración limpia con equipos frontend.",
-    proficiency: 92,
+    title: "Inteligencia Artificial & Automatizaciones 24/7",
+    description: "Implementación de agentes inteligentes y flujos automatizados (Make, Zapier, LangChain) para atención al cliente, nutrición de leads y recuperación de carritos sin intervención humana.",
+    proficiency: 94,
     tags: [
-      "Modern CSS & Tokens",
-      "React Component Contracts",
-      "Integración Tailwind / Shadcn",
-      "Web Performance & LCP",
-      "Storybook Documentation",
-      "Git & Handoff Pipelines"
+      "Agentes de IA para WhatsApp",
+      "Chatbots Contextuales LLM",
+      "Recuperación de Carritos Auto",
+      "Flujos Make / Zapier Pro",
+      "Analítica Predictiva de Clientes",
+      "Soporte Omnicanal 24/7"
     ],
-    iconType: "code"
+    iconType: "play"
   }
 ];
+

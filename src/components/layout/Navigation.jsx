@@ -43,11 +43,11 @@ export function Navigation({
 
   const navLinks = [
     { id: 'hero', label: 'Inicio' },
-    { id: 'skills', label: 'Skills & Craft' },
+    { id: 'skills', label: 'Stack & Servicios' },
     { id: 'tokens-lab', label: 'Tokens Lab' },
-    { id: 'projects', label: 'Proyectos' },
+    { id: 'projects', label: 'Soluciones' },
     { id: 'methodology', label: 'Método' },
-    { id: 'about', label: 'Filosofía' }
+    { id: 'about', label: 'Nosotros' }
   ];
 
   const scrollTo = (id) => {
@@ -77,8 +77,8 @@ export function Navigation({
             )}
           </div>
           <div className="brand-text-col">
-            <span className="brand-name">Juan Aguirre</span>
-            <span className="brand-badge">Dev Full Stack</span>
+            <span className="brand-name">Korvexya</span>
+            <span className="brand-badge">E-Commerce &amp; CRM</span>
           </div>
         </button>
 

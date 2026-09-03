@@ -11,9 +11,9 @@ export function Methodology() {
         <SectionHeader 
           numeral="04"
           kicker="Metodología de Alto Rendimiento"
-          title="El Proceso"
-          italicAccent="Editorial &amp; Cinético"
-          subtitle="Un marco de trabajo riguroso de 4 etapas que asegura sincronía perfecta entre las necesidades del usuario, la estrategia de negocio y la ingeniería de diseño."
+          title="El Método"
+          italicAccent="Korvexya"
+          subtitle="Un marco de trabajo riguroso de 4 etapas que asegura sincronía perfecta entre tus objetivos comerciales, la infraestructura tecnológica y la experiencia de tus clientes."
         />
 
         <div className="process-steps-grid">

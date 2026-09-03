@@ -8,14 +8,14 @@ export function EditorialMasthead() {
           <div className="masthead-tag">
             <span>VOL. 26</span>
             <span>//</span>
-            <span>PRO EDITION</span>
+            <span>ENTERPRISE TECH</span>
           </div>
 
-          <div>PORTAFOLIO DE JUAN AGUIRRE — DEV FULL STACK</div>
+          <div>KORVEXYA — SOLUCIONES E-COMMERCE, CRM &amp; SOFTWARE A MEDIDA</div>
 
           <div style={{ display: 'flex', gap: '14px' }}>
-            <span>UTC-5 // DISPONIBLE Q3/Q4</span>
-            <span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>● LIVE SYSTEM</span>
+            <span>CONSULTORÍA DISPONIBLE 2026</span>
+            <span style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>● SISTEMAS ACTIVOS</span>
           </div>
         </div>
       </div>

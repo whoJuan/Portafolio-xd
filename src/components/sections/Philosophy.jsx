@@ -10,9 +10,9 @@ export function Philosophy() {
       <div className="app-container">
         <SectionHeader 
           numeral="05"
-          kicker="Filosofía &amp; Reconocimientos"
-          title="El Manifiesto del"
-          italicAccent="Diseño"
+          kicker="Visión &amp; Distinciones"
+          title="El Manifiesto de"
+          italicAccent="Korvexya"
         />
 
         <div className="philosophy-grid-layout">
@@ -24,17 +24,17 @@ export function Philosophy() {
                 <div>
                   <div className="large-quote-glyph">“</div>
                   <p className="manifesto-quote-text">
-                    El buen diseño digital no se limita a resolver problemas de usabilidad; <span className="serif-accent" style={{ color: 'var(--accent-primary)' }}>provoca emoción, transmite confianza táctil</span> y convierte la interacción en un diálogo natural e intuitivo.
+                    La tecnología de alto rendimiento no es un costo, <span className="serif-accent" style={{ color: 'var(--accent-primary)' }}>es el mayor motor de crecimiento</span>. Desarrollamos tiendas online y sistemas CRM diseñados para vender más, operar en piloto automático y ofrecer una experiencia insuperable.
                   </p>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px', paddingTop: '20px', borderTop: '1px solid var(--paper-border)' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#fff' }}>
-                    JA
+                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-secondary))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#fff', fontSize: '1rem' }}>
+                    KX
                   </div>
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: '0.98rem' }}>Juan Aguirre</div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DEV FULL STACK &amp; PRODUCT DESIGNER</div>
+                    <div style={{ fontWeight: 800, fontSize: '0.98rem' }}>Korvexya Tech Studio</div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>E-COMMERCE &amp; ENTERPRISE CRM SOLUTIONS</div>
                   </div>
                 </div>
               </div>
@@ -45,7 +45,7 @@ export function Philosophy() {
           <RevealOnScroll direction="left" delay={0.2}>
             <GlassCard className="awards-list-wrapper">
               <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Reconocimientos &amp; Distinciones
+                Reconocimientos &amp; Certificaciones
               </div>
 
               <div>
@@ -67,3 +67,4 @@ export function Philosophy() {
     </section>
   );
 }
+

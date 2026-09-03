@@ -1,98 +1,104 @@
 export const CASE_STUDIES = [
   {
-    id: "apex",
-    number: "01 // SAAS OS",
-    client: "Apex Quant Capital (Londres / NYC)",
-    tag: "FINTECH // SAAS DE ALTA DENSIDAD",
-    title: "Apex Financial Intelligence OS",
-    role: "Lead UX/UI & Design System Architect (6 Meses)",
-    description: "Rediseño integral de la plataforma de trading y analítica cuantitativa de Apex. Transformamos una interfaz caótica de múltiples terminales en un sistema de paneles modulares de cristal con drawer contextual inteligente.",
-    overview: "Los operadores cuantitativos y analistas de fondos de cobertura se enfrentaban a una sobrecarga cognitiva extrema debida a 12 ventanas simultáneas sin jerarquía. Diseñamos un nuevo paradigma de espacio de trabajo modular con paneles de cristal translúcido y 'Focus Drawers' contextuales basados en IA.",
-    problem: "Sobrecarga de información, tiempo de reacción lento (pérdida de oportunidades de arbitraje) y 48% de tasa de errores en la configuración de algoritmos de ejecución rápida.",
+    id: "ecommerce",
+    number: "01 // E-COMMERCE DE ALTA CONVERSIÓN",
+    client: "Tiendas Online & Flagship Stores",
+    tag: "E-COMMERCE // CHECKOUT ULTRA-RÁPIDO",
+    title: "Arquitectura E-Commerce & Escalamiento de Ventas",
+    role: "Headless Commerce, Shopify Plus, WooCommerce & Checkout Custom",
+    image: "/images/ecommerce_showcase.jpg",
+    description: "Desarrollo de tiendas online optimizadas para máxima velocidad de carga y conversión. Integración de pasarelas de pago locales e internacionales, catálogo interactivo con filtros instantáneos y checkout de 1-clic.",
+    overview: "Diseñamos y desarrollamos plataformas de comercio electrónico preparadas para alto tráfico y picos de demanda (Black Friday, Cyber Days). Eliminamos toda fricción en el proceso de compra con arquitecturas modernas, pasarelas multimoneda y sincronización automática de stock.",
+    problem: "Altas tasas de carritos abandonados por pasarelas lentas, tiempos de carga superiores a 3 segundos que dañan el posicionamiento SEO y falta de adaptabilidad en dispositivos móviles.",
     solution: [
-      "Sistema de diseño modular 'Apex Glass' con contraste optimizado para salas oscuras de trading.",
-      "Drawer contextual flotante activado por atajos de teclado globales.",
-      "Telemetría de riesgo en tiempo real con micro-gráficos sparkline y señales visuales de volatilidad."
+      "Arquitectura Headless / Shopify Plus con tiempo de respuesta inferior a 800ms.",
+      "Checkout optimizado de 1-clic con pasarelas de pago múltiples (Stripe, Mercado Pago, PayPal, Wompi).",
+      "Sistemas de recomendación de productos dinámicos y upsells para elevar el Ticket Promedio (AOV)."
     ],
-    tokens: ["--glass-blur: 28px", "--elevation-trading: 0 25px 60px rgba(0,0,0,0.6)", "--accent-alpha: #6366f1", "--color-gain: #10b981", "--color-loss: #f43f5e"],
-    motion: "Resortes de física 'Gentle Spring' (stiffness: 300, damping: 25) para abrir drawers en 120ms sin bloqueo de renderizado.",
+    tokens: ["--checkout-latency: <180ms", "--cart-conversion: +240%", "--payment-security: PCI-DSS Level 1", "--mobile-first: 100%"],
+    motion: "Drawer de carrito ultra-fluido sin recarga de página, micro-feedback háptico al añadir artículos y animaciones cinéticas de confirmación de compra.",
     impact: [
-      { val: "-42%", label: "Carga Cognitiva (NASA-TLX)" },
-      { val: "+310%", label: "Velocidad de Entrada de Órdenes" },
-      { val: "99.4%", label: "Adopción de Usuarios" }
+      { val: "+240%", label: "Tasa de Conversión" },
+      { val: "0.8s", label: "Tiempo de Carga" },
+      { val: "-45%", label: "Abandono de Carrito" }
     ],
     accentColor: "#6366f1"
   },
   {
-    id: "aether",
-    number: "02 // SPATIAL OS",
-    client: "Aether Labs Inc. (San Francisco, CA)",
-    tag: "SPATIAL AI // GENERATIVE INTERFACE",
-    title: "Aether Ambient AI & Spatial Interface",
-    role: "Principal UX Architect & Motion Lead (8 Meses)",
-    description: "Paradigma revolucionario de interacción humano-computador para modelos fundacionales de IA. Diseñamos un lienzo infinito sin cajas de texto tradicionales, impulsado por superficies adaptativas y feedback háptico.",
-    overview: "Rompiendo con el clásico paradigma de la 'caja de chat con texto plano', Aether introduce un lienzo espacial infinito donde la voz, los gestos y los prompts multimodales interactúan con superficies adaptativas que se auto-organizan según la intención del usuario.",
-    problem: "Los modelos generativos avanzados quedan limitados por interfaces basadas exclusivamente en chat lineal de texto, impidiendo flujos de trabajo de síntesis creativa no lineales.",
+    id: "crm",
+    number: "02 // SISTEMAS CRM & GESTIÓN DE CLIENTES",
+    client: "Plataformas B2B / B2C & Equipos Comerciales",
+    tag: "CRM A MEDIDA // PIPELINES AUTOMATIZADOS",
+    title: "Sistemas CRM Personalizados & Pipelines de Ventas",
+    role: "Desarrollo Full Stack CRM, HubSpot, Salesforce & APIs",
+    image: "/images/crm_showcase.jpg",
+    description: "Implementación y desarrollo de sistemas CRM a medida para centralizar clientes, prospectos y oportunidades. Pipelines visuales de ventas tipo Kanban, scoring automático de leads y reportes analíticos para directores.",
+    overview: "Transformamos el desorden de hojas de cálculo y seguimientos manuales en un centro de comando unificado. Cada interacción con el prospecto queda registrada, permitiendo al equipo comercial cerrar más tratos en menor tiempo.",
+    problem: "Pérdida de prospectos por falta de seguimiento oportuno, nula trazabilidad de las negociaciones entre vendedores y falta de métricas consolidadas de rendimiento comercial.",
     solution: [
-      "Superficie de cristal elástico que se deforma y agrupa nodos de contexto de forma dinámica.",
-      "Espectro sonoro y visual sincronizado con latencia imperceptible (120ms).",
-      "Paleta cromática auto-adaptativa según la emoción y tono del output generado."
+      "Tablero visual de embudo de ventas con arrastrar y soltar (Kanban) y etapas configurables.",
+      "Scoring inteligente de prospectos para priorizar a los clientes con mayor probabilidad de cierre.",
+      "Integración omnicanal de WhatsApp Business, correo electrónico y llamadas con historial unificado."
     ],
-    tokens: ["--spatial-spring: cubic-bezier(0.34, 1.56, 0.64, 1)", "--ambient-glow: #8b5cf6", "--mesh-density: 120px"],
-    motion: "Coreografía cinemática con Framer Motion para transiciones de estado Shared Layout y expansión radial de nodos generativos.",
+    tokens: ["--crm-sync: Real-Time Webhooks", "--lead-scoring: AI-Driven", "--pipeline-stages: Multi-Funnel", "--export: Instant BI"],
+    motion: "Reordenamiento fluido de tarjetas de prospectos con resortes de física (Spring 60FPS) y transiciones instantáneas entre vistas de funnel.",
     impact: [
-      { val: "4.9/5", label: "CSAT Score" },
-      { val: "2.8x", label: "Retención Semanal" },
-      { val: "0.12s", label: "Latencia Perceptiva" }
+      { val: "3.4x", label: "Velocidad de Cierre" },
+      { val: "+85%", label: "Retención de Clientes" },
+      { val: "100%", label: "Trazabilidad de Leads" }
     ],
     accentColor: "#8b5cf6"
   },
   {
-    id: "lumina",
-    number: "03 // LUXURY E-COMMERCE",
-    client: "Lumina Horlogerie Genève (Suiza)",
-    tag: "LUXURY EDITORIAL // E-COMMERCE 3D",
-    title: "Lumina Haute Horlogerie Flagship",
-    role: "Design Director & Visual Craft Specialist (4 Meses)",
-    description: "Experiencia digital editorial para una de las marcas de relojería suiza más exclusivas del mundo. Integración de visualización 3D interactiva del calibre mecánico, tipografía de revista y checkout sensorial sin fricción.",
-    overview: "Diseño de la experiencia digital insignia para la manufactura de alta relojería Lumina. Combinamos tipografía editorial suiza, animaciones de micro-precisión y exploración 3D interactiva en tiempo real del mecanismo de tourbillon.",
-    problem: "Los clientes de ultra alto patrimonio encontraban las compras online de alta relojería frías y carentes de la magia sensorial de una boutique física en Place Vendôme.",
+    id: "integraciones",
+    number: "03 // INTEGRACIONES ERP & PASARELAS DE PAGO",
+    client: "Empresas en Expansión & E-Commerce Omnicanal",
+    tag: "CONECTIVIDAD // APIS & LOGÍSTICA",
+    title: "Integraciones de Software, ERPs & Automatización de Pagos",
+    role: "Arquitectura de APIs, Sincronización de Stock & Facturación",
+    image: "/images/integraciones_showcase.jpg",
+    description: "Conectamos tu tienda y CRM con sistemas ERP (SAP, Oracle, Holded), facturación electrónica automática, empresas de logística y pasarelas de pago globales para una operación 100% automatizada.",
+    overview: "Eliminamos la carga operativa de actualizar datos a mano entre distintas aplicaciones. Creamos puentes robustos y seguros entre tu tienda online, tu CRM, tus almacenes físicos y tu sistema contable.",
+    problem: "Descoordinación entre stock físico y online (sobreventas), retrasos de días en la emisión de facturas fiscales y errores humanos al despachar pedidos.",
     solution: [
-      "Composición de revista de moda de lujo con tipografía de alto contraste (Instrument Serif + Syne).",
-      "Inspección microscópica del calibre con iluminación especular reflectante al mover el cursor.",
-      "Flujo de reserva privada 'Concierge Checkout' en dos clics."
+      "Sincronización bidireccional en tiempo real de inventario, precios y catálogos.",
+      "Generación automática de facturas fiscales y guías de envío logístico al confirmar el pago.",
+      "Monitoreo continuo de APIs con reintentos automáticos y tolerancia a fallos 24/7."
     ],
-    tokens: ["--gold-specular: #eab308", "--editorial-serif: 'Instrument Serif'", "--luxury-backdrop: rgba(8,9,13,0.92)"],
-    motion: "Scroll continuo hiper-fluido con inercia desacelerada e interpolación óptica de reflejos de oro y titanio.",
+    tokens: ["--api-protocol: REST / GraphQL / Webhooks", "--sync-latency: 0.05s", "--security: TLS 1.3 / OAuth2", "--fault-tolerance: 99.99%"],
+    motion: "Visualización de telemetría de red con pulsos luminosos de sincronización exitosa y confirmación de eventos en tiempo real.",
     impact: [
-      { val: "+185%", label: "Conversión VIP" },
-      { val: "6m 40s", label: "Tiempo en Sitio" },
-      { val: "SOTD", label: "Awwwards Winner" }
+      { val: "0 min", label: "Tiempo Manual en Facturas" },
+      { val: "99.99%", label: "Disponibilidad de APIs" },
+      { val: "0%", label: "Errores de Inventario" }
     ],
-    accentColor: "#eab308"
+    accentColor: "#06b6d4"
   },
   {
-    id: "synapse",
-    number: "04 // MHEALTH OS",
-    client: "Synapse BioLabs (Boston, MA)",
-    tag: "HEALTH TECH // MOBILE ECOSYSTEM",
-    title: "Synapse NeuroHealth Mobile",
-    role: "Lead Mobile UX & Accessibility Specialist (5 Meses)",
-    description: "Ecosistema móvil para el monitoreo en tiempo real de biomarcadores neurológicos y estrés cardíaco. Diseñado bajo los estándares más estrictos de accesibilidad médica (WCAG AAA) y visualización de datos sin fatiga ocular.",
-    overview: "Aplicación móvil médica para pacientes con trastornos del sueño y arritmias. Transformación de complejas lecturas de telemetría médica en interfaces intuitivas y reconfortantes que cumplen estrictamente con WCAG AAA.",
-    problem: "Los pacientes se sentían abrumados y ansiosos por las lecturas crudas de ECG y datos biométricos, provocando deserciones tempranas del tratamiento.",
+    id: "ia-automatizacion",
+    number: "04 // AUTOMATIZACIONES CON IA & ASISTENTES 24/7",
+    client: "Marcas Digitales & Negocios Escalables",
+    tag: "INTELIGENCIA ARTIFICIAL // ATENCIÓN & VENTAS",
+    title: "Agentes de IA para Ventas, Atención al Cliente & Marketing",
+    role: "Modelos LLM Especializados, Chatbots WhatsApp & Flujos Make/Zapier",
+    image: "/images/ai_automation_showcase.jpg",
+    description: "Automatización de procesos de atención y ventas con Inteligencia Artificial. Asistentes capaces de responder dudas, recomendar productos del catálogo, agendar reuniones en el CRM y recuperar carritos las 24 horas.",
+    overview: "Desplegamos agentes inteligentes entrenados con el catálogo de tu tienda y las políticas de tu negocio para atender y convertir clientes incluso cuando tu equipo está descansando.",
+    problem: "Consultas de clientes sin responder por horas fuera del horario laboral, pérdida de ventas por dudas no resueltas y saturación del equipo con preguntas repetitivas.",
     solution: [
-      "Visualizaciones orgánicas de ritmo cardíaco (ECG Waveform) con paleta relajante y alto contraste.",
-      "Modo nocturno de emisión azul cero (Zero Blue Light Mode) certificado.",
-      "Arquitectura de interacción accesible para personas con temblores o baja visión."
+      "Chatbots con IA generativa conectados a WhatsApp, Instagram Direct y chat web en vivo.",
+      "Recomendación contextual de productos basada en el historial y preferencias del usuario.",
+      "Flujos automáticos de nutrición de prospectos y recuperación de carritos abandonados."
     ],
-    tokens: ["--contrast-ratio: 14.5:1 (WCAG AAA)", "--health-emerald: #10b981", "--sleep-cyan: #22d3ee"],
-    motion: "Animaciones de respiración rítmica coordinadas para calmar la frecuencia cardíaca del paciente en tiempo real.",
+    tokens: ["--ai-model: GPT-4o / Claude Enterprise", "--channels: WhatsApp / Web / IG", "--response-time: <1s", "--accuracy: 99.4%"],
+    motion: "Efecto de escritura interactiva en tiempo real, ondas de audio contextuales y burbujas de chat responsivas con apertura instantánea.",
     impact: [
-      { val: "100%", label: "WCAG AAA Compliance" },
-      { val: "+64%", label: "Adherencia a Terapia" },
-      { val: "4.9★", label: "App Store (45k+)" }
+      { val: "24/7", label: "Atención Continua" },
+      { val: "+65%", label: "Recuperación de Carritos" },
+      { val: "-80%", label: "Tiempo de Espera" }
     ],
     accentColor: "#10b981"
   }
 ];
+
+

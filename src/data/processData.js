@@ -1,22 +1,23 @@
 export const PROCESS_STEPS = [
   {
     num: "01",
-    title: "Descubrimiento & Mapeo Cognitivo",
-    desc: "Entrevistas de usuario, auditoría heurística del producto existente, definición de modelos mentales y alineación de KPIs de negocio."
+    title: "Diagnóstico & Arquitectura Comercial",
+    desc: "Auditoría del embudo actual, análisis de requerimientos para el E-Commerce o CRM, definición de pasarelas de pago y alineación de KPIs de conversión."
   },
   {
     num: "02",
-    title: "Arquitectura & Sistema de Tokens",
-    desc: "Estructuración de flujos sin fricción, wireframing de baja a media fidelidad y definición del árbol de tokens (colores, espaciados, tipografía)."
+    title: "Diseño UX/UI & Modelo de Datos",
+    desc: "Estructuración de flujos de compra sin fricción, diseño de interfaces de alta conversión (Checkout, Catálogo, Pipelines) y esquema de bases de datos."
   },
   {
     num: "03",
-    title: "Prototipado Glassmórfico Pro",
-    desc: "Diseño de alta fidelidad con capas de cristal translúcido, specularity de luz, contrastes editoriales y componentes accesibles WCAG AAA."
+    title: "Desarrollo Ágil & Conexión de APIs",
+    desc: "Construcción en código limpio (Next.js / Shopify / Node), integración de pasarelas de pago, webhooks de sincronización ERP y testing de seguridad."
   },
   {
     num: "04",
-    title: "Coreografía Motion & Handoff",
-    desc: "Implementación de micro-interacciones con Framer Motion, validación de 60 FPS, pruebas de usuario y handoff impecable a desarrollo."
+    title: "Lanzamiento, Automatización & Escala",
+    desc: "Despliegue con 99.9% uptime, activación de agentes de IA para atención 24/7, capacitación del equipo de ventas y optimización continua de conversión."
   }
 ];
+

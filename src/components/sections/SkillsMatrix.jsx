@@ -22,10 +22,10 @@ export function SkillsMatrix({ playClick }) {
       <div className="app-container">
         <SectionHeader 
           numeral="01"
-          kicker="Especialización &amp; Dominio"
-          title="Matriz de Habilidades"
-          italicAccent="UX / UI Pro"
-          subtitle="Un espectro de competencias holístico que cubre desde la investigación etnográfica y la psicología de usuario hasta sistemas de diseño a escala y animación con Motion."
+          kicker="Stack &amp; Capacidades"
+          title="Matriz de Servicios &amp;"
+          italicAccent="Tecnología"
+          subtitle="Un conjunto integral de capacidades que abarca desde arquitecturas E-Commerce de alta velocidad y desarrollo de CRM a medida, hasta integraciones de APIs complejas e Inteligencia Artificial."
         />
 
         <div className="skills-pillars-grid">

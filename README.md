@@ -1,6 +1,6 @@
-# ✦ Juan Aguirre — Dev Full Stack & Product Designer
+# ✦ Korvexya — Soluciones E-Commerce, CRM & Software a Medida
 
-Portafolio profesional desarrollado con **React + Vite**, arquitectura modular de componentes, **Morfismo Editorial de Revista (predominio de blancos, marfil y cristal escarchado)**, **scroll continuo** con animaciones fluidas (`framer-motion`), **Laboratorio de Tokens interactivo**, **Web Audio API para micro-feedback háptico** y un **Easter Egg Arcade** oculto.
+Plataforma corporativa desarrollada con **React + Vite**, arquitectura modular de componentes, **Morfismo Editorial de Revista**, **scroll continuo** con animaciones fluidas (`framer-motion`), **Laboratorio de Tokens interactivo**, **Web Audio API para micro-feedback háptico**, presentación de servicios de **E-Commerce de alta conversión, CRM personalizado, integraciones ERP/Pasarelas e IA** y un **Easter Egg Arcade** oculto.
 
 ---
 
@@ -18,12 +18,12 @@ Portafolio profesional desarrollado con **React + Vite**, arquitectura modular d
 ## 📂 Arquitectura Modular
 
 ```
-ux-ui-pro-portfolio/
+korvexya-platform/
 ├── src/
 │   ├── components/
 │   │   ├── layout/       # Navigation, EditorialMasthead, BackgroundMesh, CustomCursor, ScrollProgress, Footer
 │   │   ├── sections/     # HeroEditorial, SkillsMatrix, TokensLab, CaseStudies, Methodology, Philosophy, Contact
-│   │   ├── modals/       # CaseStudyModal (desglose profundo con tabs y métricas)
+│   │   ├── modals/       # CaseStudyModal (desglose profundo con especificaciones y métricas)
 │   │   ├── easteregg/    # TokenTapGame (minijuego interactivo arcade)
 │   │   └── ui/           # GlassCard, SectionHeader, RevealOnScroll
 │   ├── data/             # caseStudies.js, skillsData.js, processData.js, awardsData.js, themePresets.js
@@ -47,16 +47,10 @@ Haz **10 clics consecutivos** sobre el isotipo del **Prisma de Cristal** en el l
 ## 🛠️ Instalación y Uso Local
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/whoJuan/Portafolio-xd.git
-
-# 2. Entrar al directorio
-cd Portafolio-xd
-
-# 3. Instalar dependencias
+# 1. Instalar dependencias
 npm install
 
-# 4. Iniciar servidor de desarrollo
+# 2. Iniciar servidor de desarrollo
 npm run dev
 ```
 
@@ -69,6 +63,7 @@ npm run build
 
 ## 📬 Contacto
 
-- **Desarrollador**: Juan Aguirre
-- **Rol**: Dev Full Stack & Product Designer
-- **Correo**: [juancitochannel@gmail.com](mailto:juancitochannel@gmail.com)
+- **Marca**: Korvexya
+- **Especialidad**: E-Commerce de Alta Conversión, Sistemas CRM & Automatizaciones con IA
+- **Correo**: [Korvexyasea@gmail.com](mailto:Korvexyasea@gmail.com)
+

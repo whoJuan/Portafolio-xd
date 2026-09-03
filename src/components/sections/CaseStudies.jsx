@@ -6,34 +6,42 @@ import { RevealOnScroll } from '../ui/RevealOnScroll';
 import { CASE_STUDIES } from '../../data/caseStudies';
 
 export function CaseStudies({ onOpenDeepDive, playModalOpen, playClick }) {
-  // Vector graphics for each project
+  // Vector graphics for each service
   const renderGraphic = (id) => {
-    if (id === 'apex') {
+    if (id === 'ecommerce') {
       return (
         <svg className="case-art-canvas" viewBox="0 0 600 375" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="600" height="375" fill="#0c0e14" />
-          <line x1="40" y1="60" x2="560" y2="60" stroke="#242b3d" strokeDasharray="4 4" />
-          <line x1="40" y1="120" x2="560" y2="120" stroke="#242b3d" strokeDasharray="4 4" />
-          <line x1="40" y1="180" x2="560" y2="180" stroke="#242b3d" strokeDasharray="4 4" />
-          <line x1="40" y1="240" x2="560" y2="240" stroke="#242b3d" strokeDasharray="4 4" />
+          <rect width="600" height="375" fill="#0b0d14" />
+          {/* Grid lines */}
+          <line x1="40" y1="60" x2="560" y2="60" stroke="#1f2535" strokeDasharray="4 4" />
+          <line x1="40" y1="130" x2="560" y2="130" stroke="#1f2535" strokeDasharray="4 4" />
+          <line x1="40" y1="200" x2="560" y2="200" stroke="#1f2535" strokeDasharray="4 4" />
+          <line x1="40" y1="270" x2="560" y2="270" stroke="#1f2535" strokeDasharray="4 4" />
           
-          <rect x="70" y="140" width="12" height="60" fill="#10b981" rx="2" />
-          <line x1="76" y1="120" x2="76" y2="220" stroke="#10b981" strokeWidth="2" />
-          <rect x="110" y="170" width="12" height="40" fill="#f43f5e" rx="2" />
-          <line x1="116" y1="150" x2="116" y2="230" stroke="#f43f5e" strokeWidth="2" />
-          <rect x="150" y="110" width="12" height="90" fill="#10b981" rx="2" />
-          <line x1="156" y1="90" x2="156" y2="220" stroke="#10b981" strokeWidth="2" />
+          {/* Store metrics chart */}
+          <path d="M 50 260 Q 140 230, 220 180 T 380 140 T 550 70 L 550 310 L 50 310 Z" fill="url(#ecomGrad)" opacity="0.3" />
+          <path d="M 50 260 Q 140 230, 220 180 T 380 140 T 550 70" stroke="#6366f1" strokeWidth="3.5" fill="none" />
 
-          <path d="M 40 250 Q 140 180, 240 190 T 440 100 T 560 70 L 560 320 L 40 320 Z" fill="url(#apexGrad)" opacity="0.35" />
-          <path d="M 40 250 Q 140 180, 240 190 T 440 100 T 560 70" stroke="#6366f1" strokeWidth="4" fill="none" />
+          {/* Product cards in checkout */}
+          <rect x="50" y="65" width="200" height="95" rx="14" fill="#131724" fillOpacity="0.9" stroke="#6366f1" strokeWidth="1.2" />
+          <rect x="68" y="80" width="34" height="34" rx="8" fill="#1e2438" />
+          <circle cx="85" cy="97" r="9" fill="#818cf8" />
+          <text x="112" y="94" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="12">Headless Storefront</text>
+          <text x="112" y="110" fill="#a1a1aa" fontFamily="'JetBrains Mono', monospace" fontSize="10">Checkout: 1-Click Active</text>
+          <rect x="68" y="124" width="164" height="24" rx="6" fill="#6366f1" fillOpacity="0.2" />
+          <text x="150" y="140" fill="#a5b4fc" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="10" textAnchor="middle">⚡ Conversión +240%</text>
 
-          <rect x="320" y="140" width="220" height="120" rx="16" fill="#12151f" fillOpacity="0.85" stroke="#6366f1" strokeWidth="1.5" />
-          <text x="340" y="175" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="14">Apex Asset Intelligence</text>
-          <text x="340" y="205" fill="#22d3ee" fontFamily="'Syne', sans-serif" fontWeight="800" fontSize="22">$4,892,120.50</text>
-          <text x="340" y="235" fill="#10b981" fontFamily="'JetBrains Mono', monospace" fontSize="12">▲ +28.4% Alpha Signal</text>
+          {/* Live Revenue telemetry card */}
+          <rect x="310" y="145" width="240" height="135" rx="16" fill="#111420" fillOpacity="0.92" stroke="rgba(99,102,241,0.5)" strokeWidth="1.5" />
+          <text x="332" y="178" fill="#a1a1aa" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="12">Ventas E-Commerce (Tiempo Real)</text>
+          <text x="332" y="215" fill="#ffffff" fontFamily="'Syne', sans-serif" fontWeight="800" fontSize="26">$128,450.00</text>
+          <rect x="332" y="235" width="95" height="22" rx="6" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)" />
+          <text x="342" y="250" fill="#10b981" fontFamily="'JetBrains Mono', monospace" fontWeight="600" fontSize="11">▲ +38.5% AOV</text>
+          <rect x="435" y="235" width="95" height="22" rx="6" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.4)" />
+          <text x="447" y="250" fill="#22d3ee" fontFamily="'JetBrains Mono', monospace" fontWeight="600" fontSize="11">0.8s Load</text>
 
           <defs>
-            <linearGradient id="apexGrad" x1="300" y1="70" x2="300" y2="320" gradientUnits="userSpaceOnUse">
+            <linearGradient id="ecomGrad" x1="300" y1="70" x2="300" y2="310" gradientUnits="userSpaceOnUse">
               <stop stopColor="#6366f1" />
               <stop offset="1" stopColor="#6366f1" stopOpacity="0" />
             </linearGradient>
@@ -42,69 +50,126 @@ export function CaseStudies({ onOpenDeepDive, playModalOpen, playClick }) {
       );
     }
 
-    if (id === 'aether') {
+    if (id === 'crm') {
       return (
         <svg className="case-art-canvas" viewBox="0 0 600 375" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="600" height="375" fill="#090a0f" />
-          <circle cx="300" cy="187" r="90" fill="url(#aetherOrbGrad)" filter="drop-shadow(0 0 40px #8b5cf6)" />
-          <circle cx="300" cy="187" r="70" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="8 6" opacity="0.6" />
+          <rect width="600" height="375" fill="#090a12" />
+          
+          {/* CRM Kanban Columns */}
+          {/* Column 1: Leads */}
+          <rect x="40" y="50" width="160" height="280" rx="14" fill="#111320" fillOpacity="0.8" stroke="#25293d" />
+          <text x="56" y="78" fill="#a1a1aa" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="11">PROSPECTOS (24)</text>
+          <rect x="52" y="92" width="136" height="60" rx="10" fill="#191c2e" stroke="rgba(139,92,246,0.3)" />
+          <text x="64" y="114" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="11">Stripe Inc. Enterprise</text>
+          <text x="64" y="132" fill="#8b5cf6" fontFamily="'JetBrains Mono', monospace" fontSize="10">$45,000 · Lead Score 94</text>
 
-          <path d="M 60 187 Q 120 120, 180 187 T 300 187 T 420 187 T 540 187" stroke="#06b6d4" strokeWidth="3" fill="none" opacity="0.8" />
-          <path d="M 60 187 Q 150 240, 240 187 T 360 187 T 480 187 T 540 187" stroke="#ec4899" strokeWidth="2" fill="none" opacity="0.6" />
+          <rect x="52" y="160" width="136" height="60" rx="10" fill="#191c2e" stroke="#25293d" />
+          <text x="64" y="182" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="11">Fintech Group LATAM</text>
+          <text x="64" y="200" fill="#a1a1aa" fontFamily="'JetBrains Mono', monospace" fontSize="10">$18,500 · En Evaluación</text>
 
-          <rect x="60" y="70" width="160" height="65" rx="14" fill="#141824" fillOpacity="0.85" stroke="#22d3ee" strokeWidth="1" />
-          <text x="80" y="98" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="12">Multimodal Prompt</text>
-          <text x="80" y="118" fill="#a1a1aa" fontFamily="'JetBrains Mono', monospace" fontSize="10">Spatial Voice: Active</text>
+          {/* Column 2: Negotiation */}
+          <rect x="220" y="50" width="160" height="280" rx="14" fill="#111320" fillOpacity="0.8" stroke="rgba(139,92,246,0.5)" />
+          <text x="236" y="78" fill="#8b5cf6" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="11">EN NEGOCIACIÓN (12)</text>
+          <rect x="232" y="92" width="136" height="74" rx="10" fill="#1c1d32" stroke="#8b5cf6" strokeWidth="1.5" />
+          <text x="244" y="114" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="11">Global Retail Corp</text>
+          <text x="244" y="132" fill="#22d3ee" fontFamily="'Syne', sans-serif" fontWeight="800" fontSize="13">$84,000 USD</text>
+          <text x="244" y="152" fill="#10b981" fontFamily="'JetBrains Mono', monospace" fontSize="9">✓ WhatsApp &amp; Demo OK</text>
 
-          <rect x="380" y="240" width="170" height="65" rx="14" fill="#141824" fillOpacity="0.85" stroke="#8b5cf6" strokeWidth="1" />
-          <text x="400" y="268" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="12">Adaptive Canvas</text>
-          <text x="400" y="288" fill="#22d3ee" fontFamily="'JetBrains Mono', monospace" fontSize="10">Zero-Latency Sync</text>
+          {/* Column 3: Won */}
+          <rect x="400" y="50" width="160" height="280" rx="14" fill="#111320" fillOpacity="0.8" stroke="rgba(16,185,129,0.4)" />
+          <text x="416" y="78" fill="#10b981" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="11">CERRADO GANADO (38)</text>
+          <rect x="412" y="92" width="136" height="60" rx="10" fill="#132320" stroke="rgba(16,185,129,0.6)" />
+          <text x="424" y="114" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="11">Logistics Hub SA</text>
+          <text x="424" y="132" fill="#10b981" fontFamily="'JetBrains Mono', monospace" fontWeight="700" fontSize="11">+$120,000 / Año</text>
+
+          <rect x="412" y="160" width="136" height="60" rx="10" fill="#132320" stroke="rgba(16,185,129,0.4)" />
+          <text x="424" y="182" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="11">Omnichannel Brands</text>
+          <text x="424" y="200" fill="#10b981" fontFamily="'JetBrains Mono', monospace" fontWeight="700" fontSize="11">+$62,000 / Año</text>
+        </svg>
+      );
+    }
+
+    if (id === 'integraciones') {
+      return (
+        <svg className="case-art-canvas" viewBox="0 0 600 375" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="375" fill="#080c14" />
+          
+          {/* Central Hub */}
+          <circle cx="300" cy="187" r="70" fill="url(#hubGrad)" stroke="#06b6d4" strokeWidth="2" filter="drop-shadow(0 0 35px rgba(6,182,212,0.4))" />
+          <text x="300" y="180" fill="#ffffff" fontFamily="'Syne', sans-serif" fontWeight="800" fontSize="15" textAnchor="middle">API BRIDGE</text>
+          <text x="300" y="200" fill="#22d3ee" fontFamily="'JetBrains Mono', monospace" fontSize="11" textAnchor="middle">KORVEXYA CORE</text>
+
+          {/* Connected Nodes */}
+          {/* Node 1: E-Commerce Store */}
+          <line x1="140" y1="100" x2="245" y2="150" stroke="#06b6d4" strokeWidth="2" strokeDasharray="5 5" />
+          <rect x="50" y="65" width="140" height="65" rx="12" fill="#101726" stroke="#06b6d4" strokeWidth="1.5" />
+          <text x="70" y="93" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="12">Tienda Online</text>
+          <text x="70" y="112" fill="#38bdf8" fontFamily="'JetBrains Mono', monospace" fontSize="10">Shopify / Next.js</text>
+
+          {/* Node 2: Payment Gateways */}
+          <line x1="460" y1="100" x2="355" y2="150" stroke="#6366f1" strokeWidth="2" strokeDasharray="5 5" />
+          <rect x="410" y="65" width="140" height="65" rx="12" fill="#101726" stroke="#6366f1" strokeWidth="1.5" />
+          <text x="430" y="93" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="12">Pasarelas Pago</text>
+          <text x="430" y="112" fill="#818cf8" fontFamily="'JetBrains Mono', monospace" fontSize="10">Stripe / Mercado Pago</text>
+
+          {/* Node 3: ERP & Inventory */}
+          <line x1="140" y1="275" x2="245" y2="225" stroke="#10b981" strokeWidth="2" strokeDasharray="5 5" />
+          <rect x="50" y="245" width="140" height="65" rx="12" fill="#101726" stroke="#10b981" strokeWidth="1.5" />
+          <text x="70" y="273" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="12">ERP &amp; Stock</text>
+          <text x="70" y="292" fill="#34d399" fontFamily="'JetBrains Mono', monospace" fontSize="10">Sync en 0.05s</text>
+
+          {/* Node 4: CRM & Invoicing */}
+          <line x1="460" y1="275" x2="355" y2="225" stroke="#f59e0b" strokeWidth="2" strokeDasharray="5 5" />
+          <rect x="410" y="245" width="140" height="65" rx="12" fill="#101726" stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="430" y="273" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="12">Facturación Auto</text>
+          <text x="430" y="292" fill="#fbbf24" fontFamily="'JetBrains Mono', monospace" fontSize="10">Emisión Fiscal 100%</text>
 
           <defs>
-            <radialGradient id="aetherOrbGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 187) rotate(90) scale(90)">
-              <stop stopColor="#8b5cf6" />
-              <stop offset="0.7" stopColor="#3b82f6" />
-              <stop offset="1" stopColor="#06b6d4" stopOpacity="0.2" />
+            <radialGradient id="hubGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 187) rotate(90) scale(70)">
+              <stop stopColor="#083344" />
+              <stop offset="1" stopColor="#0c1e2e" />
             </radialGradient>
           </defs>
         </svg>
       );
     }
 
-    if (id === 'lumina') {
-      return (
-        <svg className="case-art-canvas" viewBox="0 0 600 375" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="600" height="375" fill="#08090d" />
-          <circle cx="300" cy="187" r="130" stroke="#eab308" strokeWidth="1" strokeDasharray="1 5" opacity="0.4" />
-          <circle cx="300" cy="187" r="100" stroke="#eab308" strokeWidth="1.5" opacity="0.7" />
-          <circle cx="300" cy="187" r="30" fill="#12151f" stroke="#eab308" strokeWidth="2" />
-
-          <line x1="300" y1="87" x2="300" y2="187" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
-          <line x1="300" y1="187" x2="370" y2="187" stroke="#eab308" strokeWidth="3" strokeLinecap="round" />
-
-          <rect x="50" y="240" width="180" height="80" rx="12" fill="#0f1118" fillOpacity="0.9" stroke="#eab308" strokeWidth="1" />
-          <text x="70" y="270" fill="#eab308" fontFamily="'Instrument Serif', serif" fontStyle="italic" fontSize="18">Chronographe Royal</text>
-          <text x="70" y="295" fill="#ffffff" fontFamily="'Syne', sans-serif" fontWeight="700" fontSize="14">€48,500 EUR</text>
-
-          <text x="300" y="55" fill="#ffffff" fontFamily="'Instrument Serif', serif" fontSize="28" textAnchor="middle" letterSpacing="4">L U M I N A</text>
-        </svg>
-      );
-    }
-
-    // Synapse
+    // AI Automation
     return (
       <svg className="case-art-canvas" viewBox="0 0 600 375" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="600" height="375" fill="#080c14" />
-        <path d="M 40 187 L 160 187 L 180 150 L 200 230 L 220 90 L 240 260 L 260 187 L 340 187 L 360 150 L 380 230 L 400 90 L 420 260 L 440 187 L 560 187" stroke="#10b981" strokeWidth="3" strokeLinecap="round" fill="none" />
+        <rect width="600" height="375" fill="#080e12" />
+        
+        {/* Glowing AI Matrix & Chat simulation */}
+        <circle cx="120" cy="187" r="60" fill="url(#aiCoreGrad)" filter="drop-shadow(0 0 40px rgba(16,185,129,0.5))" />
+        <circle cx="120" cy="187" r="45" stroke="#10b981" strokeWidth="2" strokeDasharray="6 4" />
+        <text x="120" y="182" fill="#ffffff" fontFamily="'Syne', sans-serif" fontWeight="800" fontSize="14" textAnchor="middle">AI AGENT</text>
+        <text x="120" y="200" fill="#34d399" fontFamily="'JetBrains Mono', monospace" fontSize="10" textAnchor="middle">24/7 ONLINE</text>
 
-        <rect x="210" y="40" width="180" height="295" rx="24" fill="#12151f" fillOpacity="0.8" stroke="#10b981" strokeWidth="1.5" />
-        <circle cx="300" cy="60" r="4" fill="#ffffff" />
-        <text x="300" y="110" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="14" textAnchor="middle">Ritmo Cardíaco</text>
-        <text x="300" y="145" fill="#10b981" fontFamily="'Syne', sans-serif" fontWeight="800" fontSize="28" textAnchor="middle">68 BPM</text>
-        <text x="300" y="170" fill="#a1a1aa" fontFamily="'JetBrains Mono', monospace" fontSize="10" textAnchor="middle">HRV: 74ms (Óptimo)</text>
+        {/* Chat bubbles flow */}
+        {/* User bubble */}
+        <rect x="220" y="55" width="330" height="55" rx="14" fill="#141c24" stroke="#233240" />
+        <text x="240" y="78" fill="#94a3b8" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="11">👤 Cliente (WhatsApp):</text>
+        <text x="240" y="96" fill="#f8fafc" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="600" fontSize="12">"¿Tienen disponible el modelo Pro con envío hoy?"</text>
 
-        <rect x="230" y="195" width="140" height="40" rx="8" fill="#191e2b" stroke="#242b3d" />
-        <text x="245" y="220" fill="#22d3ee" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="11">Fase REM: 2h 15m</text>
+        {/* AI Agent bubble */}
+        <rect x="220" y="125" width="345" height="75" rx="14" fill="#112922" stroke="#10b981" strokeWidth="1.4" />
+        <text x="240" y="148" fill="#34d399" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="11">⚡ Korvexya AI Assistant (Respuesta &lt;1s):</text>
+        <text x="240" y="166" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="12">"¡Sí! Quedan 3 unidades en stock con despacho prioritario."</text>
+        <text x="240" y="185" fill="#22d3ee" fontFamily="'JetBrains Mono', monospace" fontSize="10">→ Carrito reservado &amp; Link de pago 1-clic generado</text>
+
+        {/* Conversion Alert Box */}
+        <rect x="220" y="220" width="345" height="85" rx="14" fill="#101c18" stroke="rgba(16,185,129,0.4)" />
+        <text x="240" y="248" fill="#ffffff" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" fontSize="13">Resultado de Automatización</text>
+        <text x="240" y="270" fill="#10b981" fontFamily="'JetBrains Mono', monospace" fontWeight="700" fontSize="14">✓ Venta Cerrada: $420.00 USD</text>
+        <text x="240" y="290" fill="#94a3b8" fontFamily="'Plus Jakarta Sans', sans-serif" fontSize="11">Sincronizado automáticamente con CRM &amp; Inventario</text>
+
+        <defs>
+          <radialGradient id="aiCoreGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 187) rotate(90) scale(60)">
+            <stop stopColor="#059669" />
+            <stop offset="0.7" stopColor="#047857" />
+            <stop offset="1" stopColor="#022c22" />
+          </radialGradient>
+        </defs>
       </svg>
     );
   };
@@ -114,10 +179,10 @@ export function CaseStudies({ onOpenDeepDive, playModalOpen, playClick }) {
       <div className="app-container">
         <SectionHeader 
           numeral="03"
-          kicker="Trabajos Destacados"
-          title="Case Studies &amp;"
-          italicAccent="Proyectos Insignia"
-          subtitle="Selección curada de iniciativas de diseño complejas donde la investigación rigurosa, el diseño de sistemas y la innovación visual entregaron resultados de negocio extraordinarios."
+          kicker="Soluciones &amp; Servicios"
+          title="Nuestras Soluciones de"
+          italicAccent="E-Commerce &amp; CRM"
+          subtitle="Desarrollo de software y plataformas de alta conversión concebidas para maximizar ingresos, optimizar la gestión comercial y automatizar procesos con tecnología de punta."
         />
 
         <div className="case-studies-stack">
@@ -132,10 +197,19 @@ export function CaseStudies({ onOpenDeepDive, playModalOpen, playClick }) {
                     playModalOpen();
                     onOpenDeepDive(project);
                   }}
-                  title="Haz clic para ver el desglose completo de UX"
+                  title="Haz clic para ver el desglose técnico de la solución"
                 >
                   <span className="case-overlay-badge">{project.tag}</span>
-                  {renderGraphic(project.id)}
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="case-art-img"
+                      loading="lazy" 
+                    />
+                  ) : (
+                    renderGraphic(project.id)
+                  )}
                   <div className="case-inspect-button">
                     <ArrowUpRight size={18} />
                   </div>
@@ -168,7 +242,7 @@ export function CaseStudies({ onOpenDeepDive, playModalOpen, playClick }) {
                       onOpenDeepDive(project);
                     }}
                   >
-                    <span>Ver Caso de Estudio Detallado</span>
+                    <span>Ver Detalles de la Solución</span>
                     <ChevronRight size={14} />
                   </button>
                 </div>
@@ -181,3 +255,4 @@ export function CaseStudies({ onOpenDeepDive, playModalOpen, playClick }) {
     </section>
   );
 }
+

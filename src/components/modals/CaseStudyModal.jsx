@@ -60,6 +60,17 @@ export function CaseStudyModal({ project, onClose, playClick }) {
             </p>
           </div>
 
+          {/* Product/Service Screenshot Preview */}
+          {project.image && (
+            <div style={{ marginBottom: '24px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--paper-border)', maxHeight: '320px', background: '#07090e' }}>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} 
+              />
+            </div>
+          )}
+
           {/* Overview */}
           <div style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '32px' }}>
             {project.overview}
@@ -69,7 +80,7 @@ export function CaseStudyModal({ project, onClose, playClick }) {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '32px' }}>
             <div style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--paper-alabaster)', border: '1px solid var(--paper-border)' }}>
               <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#ef4444', marginBottom: '8px' }}>
-                01 // DESAFÍO &amp; DIAGNÓSTICO
+                01 // DESAFÍO &amp; RETO OPERATIVO
               </div>
               <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                 {project.problem}
@@ -78,7 +89,7 @@ export function CaseStudyModal({ project, onClose, playClick }) {
 
             <div style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--paper-alabaster)', border: '1px solid var(--paper-border)' }}>
               <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--accent-emerald)', marginBottom: '8px' }}>
-                02 // SOLUCIÓN DE DISEÑO &amp; SISTEMAS
+                02 // SOLUCIÓN &amp; ARQUITECTURA TÉCNICA
               </div>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {project.solution.map((sol, i) => (
@@ -94,7 +105,7 @@ export function CaseStudyModal({ project, onClose, playClick }) {
           {/* Tokens & Motion */}
           <div style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--paper-alabaster)', border: '1px solid var(--paper-border)', marginBottom: '32px' }}>
             <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--accent-primary)', marginBottom: '10px' }}>
-              03 // TOKENS &amp; COREOGRAFÍA CINÉTICA
+              03 // ESPECIFICACIONES &amp; RENDIMIENTO
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
               {project.tokens.map(t => (

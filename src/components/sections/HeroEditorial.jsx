@@ -3,11 +3,16 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ShoppingCart, Users, Sparkles, CheckCircle2, Sliders, Database } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 import { RevealOnScroll } from '../ui/RevealOnScroll';
+import { ScrambleText } from '../ui/ScrambleText';
 
 export function HeroEditorial({ playChime, playClick }) {
   const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (window.__lenis) {
+      window.__lenis.scrollTo(`#${id}`, { offset: -30, duration: 1.4 });
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -19,20 +24,24 @@ export function HeroEditorial({ playChime, playClick }) {
           <RevealOnScroll direction="up" delay={0.1}>
             <div>
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '16px' }}>
-                <span className="hero-pill-badge">
+                <span className="hero-pill-badge magnetic-element">
                   <span style={{ color: 'var(--accent-secondary)' }}>✦</span>
-                  Korvexya — Tech Agency
+                  <ScrambleText text="Korvexya — Tech Agency" triggerOnHover duration={700} />
                 </span>
-                <span className="hero-pill-badge">
+                <span className="hero-pill-badge magnetic-element">
                   <span>⚡</span>
-                  E-Commerce &amp; CRM Solutions
+                  <ScrambleText text="E-Commerce & CRM Solutions" triggerOnHover duration={700} />
                 </span>
               </div>
 
               <h1 className="hero-headline">
-                E-Commerce, CRM <br />
-                <span className="serif-accent">Escalables</span> &amp; <br />
-                <span className="gradient-accent">Soluciones Tech de Élite</span>
+                <ScrambleText text="E-Commerce & CRM" as="span" duration={850} /> <br />
+                <span className="serif-accent">
+                  <ScrambleText text="Escalables" as="span" duration={950} />
+                </span> &amp; <br />
+                <span className="gradient-accent">
+                  <ScrambleText text="Soluciones Tech de Élite" as="span" duration={1100} />
+                </span>
               </h1>
 
               <p className="hero-editorial-lead">
@@ -41,7 +50,7 @@ export function HeroEditorial({ playChime, playClick }) {
 
               <div className="hero-actions-row">
                 <button 
-                  className="btn-editorial-primary"
+                  className="btn-editorial-primary magnetic-element"
                   onClick={() => { playChime(); scrollTo('projects'); }}
                 >
                   <span>Explorar Soluciones &amp; Servicios</span>
@@ -49,7 +58,7 @@ export function HeroEditorial({ playChime, playClick }) {
                 </button>
 
                 <button 
-                  className="btn-editorial-secondary"
+                  className="btn-editorial-secondary magnetic-element"
                   onClick={() => { playClick(); scrollTo('tokens-lab'); }}
                 >
                   <span>Tokens Lab Interactivo</span>

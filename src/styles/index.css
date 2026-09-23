@@ -2694,5 +2694,247 @@ body[data-theme="obsidian-dark"] .nav-capsule.scrolled {
   }
 }
 
+/* ==========================================================================
+   FASE 1: MARCO PERIMETRAL (HUD EDITORIAL DE PRECISIÓN)
+   ========================================================================== */
+.perimetric-frame {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 990;
+  display: block;
+}
+
+/* Hairline Borders */
+.perimeter-border {
+  position: absolute;
+  background: var(--paper-border-strong);
+  pointer-events: none;
+  transition: background-color 0.3s ease;
+}
+.perimeter-top {
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+}
+.perimeter-bottom {
+  bottom: 14px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+}
+.perimeter-left {
+  top: 20px;
+  bottom: 20px;
+  left: 14px;
+  width: 1px;
+}
+.perimeter-right {
+  top: 20px;
+  bottom: 20px;
+  right: 14px;
+  width: 1px;
+}
+
+/* 4 Corner Accents & Telemetry */
+.perimeter-corner {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.corner-crosshair {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--accent-primary);
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.corner-top-left {
+  top: 22px;
+  left: 24px;
+}
+
+.corner-top-right {
+  top: 22px;
+  right: 24px;
+}
+
+.corner-bottom-left {
+  bottom: 22px;
+  left: 24px;
+}
+
+.corner-bottom-right {
+  bottom: 22px;
+  right: 24px;
+}
+
+.corner-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.corner-meta.meta-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.meta-primary {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.meta-secondary {
+  font-size: 0.6rem;
+  color: var(--text-faint);
+}
+
+.meta-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+}
+
+.status-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.8);
+  animation: pulse-beacon 2s infinite ease-in-out;
+}
+
+@keyframes pulse-beacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.meta-label {
+  font-size: 0.58rem;
+  color: var(--text-faint);
+}
+
+.meta-scene-badge {
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.meta-progress-counter {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Edge Calibration Notches */
+.edge-ticks {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.edge-ticks-left { left: 10px; }
+.edge-ticks-right { right: 10px; }
+
+.tick-notch {
+  width: 6px;
+  height: 1px;
+  background: var(--paper-border-strong);
+  opacity: 0.5;
+}
+.tick-notch.active {
+  width: 10px;
+  background: var(--accent-primary);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .corner-meta, .edge-ticks {
+    display: none;
+  }
+  .perimeter-top, .perimeter-bottom, .perimeter-left, .perimeter-right {
+    opacity: 0.4;
+  }
+}
+
+/* ==========================================================================
+   FASE 2: ESCENARIO 3D WEBGL (THREE.JS CONTAINER)
+   ========================================================================== */
+.scene-3d-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.scene-3d-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Elevación de capas de contenido HTML para transparencia y legibilidad */
+main {
+  position: relative;
+  z-index: 10;
+}
+
+.section-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   FASE 5: PULIDO INTERACTIVO (CURSOR MAGNÉTICO & SCRAMBLE TEXT)
+   ========================================================================== */
+.custom-cursor-follower.magnetic-snap {
+  border-color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.12);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+.custom-cursor-follower.clicking {
+  transform: translate(-50%, -50%) scale(0.75);
+  background: var(--accent-primary);
+  opacity: 0.6;
+}
+
+.scramble-text-node {
+  will-change: contents;
+  transition: color 0.2s ease;
+}
+
+.scramble-text-node:hover {
+  color: var(--accent-primary);
+}
+
+/* Magnetic Element Class */
+.magnetic-element {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+
 
 

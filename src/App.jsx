@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSoundEffects } from './hooks/useSoundEffects';
 import { useScrollSpy } from './hooks/useScrollSpy';
+import { useLenisScroll } from './hooks/useLenisScroll';
+import { useScrollChoreography } from './hooks/useScrollChoreography';
+
+// 3D Scene WebGL Stage
+import { Scene3D } from './components/scene/Scene3D';
 
 // Layout
 import { BackgroundMesh } from './components/layout/BackgroundMesh';
 import { CustomCursor } from './components/layout/CustomCursor';
 import { ScrollProgress } from './components/layout/ScrollProgress';
 import { EditorialMasthead } from './components/layout/EditorialMasthead';
+import { PerimetricFrame } from './components/layout/PerimetricFrame';
 import { Navigation } from './components/layout/Navigation';
 import { Footer } from './components/layout/Footer';
 
@@ -27,6 +33,8 @@ import { WhatsAppFloat } from './components/ui/WhatsAppFloat';
 export default function App() {
   const sectionIds = ['hero', 'skills', 'tokens-lab', 'projects', 'methodology', 'about', 'contact'];
   const { activeSection, scrollProgress, isScrolled } = useScrollSpy(sectionIds);
+  const { scrollTo } = useLenisScroll();
+  const choreographyRef = useScrollChoreography();
   const { 
     soundEnabled, 
     toggleSound, 
@@ -62,7 +70,13 @@ export default function App() {
 
   return (
     <div className="portfolio-app-root">
-      {/* Kinetic Custom Magnetic Cursor */}
+      {/* 3D WebGL Three.js Kinetic Stage */}
+      <Scene3D choreographyRef={choreographyRef} />
+
+      {/* Perimetric Architectural HUD Frame */}
+      <PerimetricFrame activeSection={activeSection} scrollProgress={scrollProgress} />
+
+      {/* Kinetic Custom Magnetic Vector Cursor */}
       <CustomCursor />
 
       {/* Top Linear Scroll Progress Indicator */}
